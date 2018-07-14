@@ -17,6 +17,11 @@
 		 		@include('pages.project_content')
 			</div><!-- FOURTH/PROJECT TAB EXIT -->
 
+			<!-- Course Section Tab Start -->
+			<div role="tabpanel" class="tab-pane fade wow slideInRight animated" id="Course" aria-labelledby="dropdown2-tab">
+		 		@include('pages.course_content')
+			</div>
+
 			<!-- Training Section Tab Start -->
 			<div role="tabpanel" class="tab-pane fade wow slideInRight animated" id="Training" aria-labelledby="dropdown2-tab">
 		 		@include('pages.training_content')

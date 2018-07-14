@@ -8,7 +8,7 @@ class HomeController extends Controller
 {
     public function index(){
 
-    	$data = DB::table('tbl_profiles')  
+    	$data = DB::table('tbl_profiles')    
     			->get(); 
     	$statement = view('pages/landing_content')
     		->with('profile_data',$data); 

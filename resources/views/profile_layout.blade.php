@@ -34,32 +34,46 @@
 <div id="inner-wrap"> 	
 	<!-- ================== Manu html Start ======================= -->
 	<div class="menu_wrap"> 
-		<div id="sidebar" class="menu" style=" background-image: url(images/sidebg-1.jpg);">	
+		<?php 
+			$get_id = Session::get('get_id');
+			$datas = DB::table('tbl_profiles')
+					->where('teacher_id', $get_id)
+					->get(); 
+					foreach ($datas as $value) {
+					  	$image = $value->image;
+					  	$fullname = $value->fullname;
+					  	$last_institute = $value->last_institute;
+					  }   
+		?>
+		<div id="sidebar" class="menu" style=" background-image: url({{URL::to('public/images/sidebg-1.jpg')}});">	
 			<div id="profile" class="clearfix">
               <div class="portrate">
                 <a href="index.html">
-                  <img src="images/woman-578429_1920.jpg" alt="Jane Doe">
+                  <img src="{{URL::to("$image")}}" alt="Jane Doe">
                 </a>
               </div>
               <div class="title">
-                  <h2>Jane Doe</h2>
-                  <h3>MIT University</h3>
+                  <h2>{{$fullname}}</h2>
+                  <h3>{{$last_institute}}</h3>
               </div>   
           	</div>
 	        <div id="main-nav" style="padding-bottom: 57px;"> 
 	        	<ul id="myTabs" class="nav nav-tabs" role="tablist"> 
 
-			      <li role="presentation" class="current-menu-item"><a href="#home" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">
+			      <li role="presentation" class="active"><a href="#home" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">
 			      	<i class="fa fa-home"></i><span class="fontawesome-text">Home</span></a></li>
 
-			      <li role="presentation"><a href="#Publications" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">
+			      <li role="presentation"  ><a href="#Publications" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">
 			      	<i class="fa fa-bookmark"></i><span class="fontawesome-text">Publications</span></a></li>
 
 			      <li role="presentation"><a href="#Research" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">
 			      	<i class="fa fa-area-chart"></i><span class="fontawesome-text">Research</span></a></li>
 
 			      <li role="presentation"><a href="#Projects" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">
-			      	<i class="fa fa-desktop"></i><span class="fontawesome-text">Projects</span></a></li>
+			      	<i class="fa fa-desktop"></i><span class="fontawesome-text">Projects</span></a></li> 
+
+			      	<li role="presentation"><a href="#Course" role="tab" id="Course-tab" data-toggle="tab" aria-controls="Course">
+			      	<i class="fa fa-book"></i><span class="fontawesome-text">Course Taken</span></a></li> 
 
 			      	<li role="presentation"><a href="#Training" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">
 			      	<i class="fa fa-ioxhost"></i><span class="fontawesome-text">Training</span></a></li>
@@ -108,7 +122,7 @@
 <script src="{{asset('public/js/bootstrap/bootstrap.min.js')}}"></script>
 <script src="{{asset('public/js/jquery.carouFredSel-6.2.1-packeddf38.js?ver=3.14.0')}}"></script>
 <script src="{{asset('public/js/bootstrap/bootstrap-select.js')}}"></script>
-<script src="{{asset('public/js/responsive-menu/modernizr.js')}}"></script>
+<script src="{{asset('public/js/responsive-menu/modernizr.js')}}"></script> 
 <script src="{{asset('public/js/responsive-menu/main.js')}}"></script>
 <script src="{{asset('public/js/wow.min.js')}}"></script>
 <script src="{{asset('public/js/custom.js')}}"></script>

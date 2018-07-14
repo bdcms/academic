@@ -103,14 +103,29 @@
 					    	<span class="error_message">{{ $errors->first('contact')}} </span>
 						</div>
 						<div class="col-sm-12 col-md-1 col-lg-1"></div>
-				  	</div>
+				  	</div>  
 
 				  	<div class="form-group">
 					  	<div class="col-sm-12 col-md-2 col-lg-2"> 
 					    	<label for="exampleInputEmail1">Position:</label>
 					  	</div>
 					  	<div class="col-sm-12 col-md-9 col-lg-9">
-					    	<input type="text" name="position" class="form-control {{ $errors->has('position') ? 'has-error':''}}" placeholder="Position" value="{{Request::old('position')}}">
+					    	<select class="form-control {{ $errors->has('position') ? 'has-error':''}}" name="position">
+					    		
+					    		 
+					    		@if(Request::old('position'))
+					    		<?php	
+					    			$id=Request::old('position'); 
+					    			$position = DB::table('tbl_positions') ->where('pos_id',$id) ->first();  
+					    			echo '<option value="'.$position->pos_id.'">'.$position->pos_name.'</option>'; 
+					    		?> 
+					    		@endif
+					    		<option>Select Position</option>
+								@foreach($datas as $data)
+					    		<option value="{{$data->pos_id}}">{{$data->pos_name}}</option>
+					    		@endforeach
+					    	</select>
+
 					    	<span class="error_message">{{ $errors->first('position')}} </span>
 						</div>
 						<div class="col-sm-12 col-md-1 col-lg-1"></div>

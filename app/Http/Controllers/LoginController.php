@@ -25,7 +25,8 @@ class LoginController extends Controller
 			->first(); 
 			if ($result) {
 				Session::put('fullname', $result->fullname);
-				Session::put('teacher_id', $result->teacher_id);
+				Session::put('teacher_id', $result->teacher_id); 
+				Session::put('image', $result->image);
 				return Redirect::to('/Dashboard');
 			}else{
 				Session::put('message','Email or Password invalid'); 

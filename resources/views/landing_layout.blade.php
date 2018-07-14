@@ -52,8 +52,7 @@
 			        <?php 
 			            $message = Session::get('message'); 
 			            if($message){
-			              echo $message;
-			              
+			              echo $message; 
 			            }
 			            //Session::put('message',NULL);
 			          ?>

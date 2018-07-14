@@ -1,5 +1,12 @@
+<?php 
+    $get_id = Session::get('get_id');
+    $datas = DB::table('tbl_sections')
+            ->where('teacher_id', $get_id)
+            ->get();  
+?>
+ @foreach($datas as $data)
 <div class="container_section ">
-	<div class="pageheader has-bg" style="background-image:url(images/gallery-head.jpg);">
+	<div class="pageheader has-bg" style="background-image:url({{URL::to("$data->gallary_cover")}})">
         <div class="headercontent">
             <div class="section-container">
                 <h1 class="title">Gallery</h1>
@@ -7,19 +14,26 @@
         </div>
     </div>
 </div>
-
+@endforeach
 <div class="container_section">
 	<div class="section color-1" id="gallery-large">
     <div class="section-container">
         
         <ul id="grid" class="grid" style="position: relative; height: 813.062px;">
                                             
-            
+            <?php 
+                $get_id = Session::get('get_id');
+                $datas = DB::table('tbl_gallerys')
+                        ->where('teacher_id', $get_id)
+                        ->get();   
+            ?>
+            @if($datas !="[]")
+            @foreach($datas as $data)
             <li style="position: absolute; left: 0px; top: 0px;">
                 <div>
-                    <img alt="image" src="images/fashion-605508.jpg">
-                    <a href="images/fashion-605508.jpg" class="popup-with-move-anim">
-                        <div class="over" style="top: 100%; bottom: -100%;">
+                    <img alt="image" src="{{URL::to("$data->glry_cover")}}">
+                    <a target="blank" href="{{URL::to("$data->glry_cover")}}" class="popup-with-move-anim">
+                        <div class="over" style="top: 0%; bottom: 0%;">
                             <div class="comein">
                                 <i class="fa fa-search"></i>
                                 <div class="comein-bg"></div>
@@ -29,149 +43,10 @@
                 </div>
             </li>
             
-								
-            
-            <li style="position: absolute; left: 290px; top: 0px;">
-                <div>
-                    <img alt="image" src="images/hair-690127.jpg">
-                    <a href="images/hair-690127.jpg" class="popup-with-move-anim">
-                        <div class="over" style="top: 100%; bottom: -100%;">
-                            <div class="comein">
-								<i class="fa fa-search"></i>
-                                <div class="comein-bg"></div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </li>
-            
-                                        
-            
-            <li style="position: absolute; left: 580px; top: 0px;">
-                <div>
-                    <img alt="image" src="images/lego-349955_1920.jpg">
-                    <a href="images/lego-349955_1920.jpg" class="popup-with-move-anim">
-                        <div class="over" style="top: 100%; bottom: -100%;">
-                            <div class="comein">
-								<i class="fa fa-search"></i>
-                                <div class="comein-bg"></div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </li>
-            
-                                        
-            
-            <li style="position: absolute; left: 0px; top: 203px;">
-                <div>
-                    <img alt="image" src="images/ladybug-676448_1920.jpg">
-                    <a href="images/ladybug-676448_1920.jpg" class="popup-with-move-anim">
-                        <div class="over" style="top: 100%; bottom: -100%;">
-                            <div class="comein">
-								<i class="fa fa-search"></i>
-                                <div class="comein-bg"></div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </li>
-            
-                                        
-            
-            <li style="position: absolute; left: 290px; top: 203px;">
-                <div>
-                    <img alt="image" src="images/hair-690127.jpg">
-                    <a href="images/hair-690127.jpg" class="popup-with-move-anim">
-                        <div class="over" style="top: 100%; bottom: -100%;">
-                            <div class="comein">
-								<i class="fa fa-search"></i>
-                                <div class="comein-bg"></div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </li>
-            
-                                        
-            
-            <li style="position: absolute; left: 580px; top: 203px;">
-                <div>
-                    <img alt="image" src="images/girl-569117_1920.jpg">
-                    <a href="images/girl-569117_1920.jpg" class="popup-with-move-anim">
-                        <div class="over" style="top: 100%; bottom: -100%;">
-                            <div class="comein">
-								<i class="fa fa-search"></i>
-                                <div class="comein-bg"></div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </li>
-            
-                                        
-            
-            <li style="position: absolute; left: 0px; top: 406px;">
-                <div>
-                    <img alt="image" src="images/fashion-605508.jpg">
-                    <a href="images/fashion-605508.jpg" class="popup-with-move-anim">
-                        <div class="over" style="top: 100%; bottom: -100%;">
-                            <div class="comein">
-								<i class="fa fa-search"></i>
-                                <div class="comein-bg"></div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </li>
-            
-                                        
-            
-            <li style="position: absolute; left: 290px; top: 406px;">
-                <div>
-                    <img alt="image" src="images/cat-694730_1920.jpg">
-                    <a href="images/cat-694730_1920.jpg" class="popup-with-move-anim">
-                        <div class="over" style="top: 100%; bottom: -100%;">
-                            <div class="comein">
-								<i class="fa fa-search"></i>
-                                <div class="comein-bg"></div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </li>
-            
-                                        
-            
-            <li style="position: absolute; left: 580px; top: 428px;">
-                <div>
-                    <img alt="image" src="images/lego-349955_1920.jpg">
-                    <a href="images/lego-349955_1920.jpg" class="popup-with-move-anim">
-                        <div class="over">
-                            <div class="comein">
-								<i class="fa fa-search"></i>
-								<div class="comein-bg"></div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </li>
-            
-                                        
-            
-            <li style="position: absolute; left: 0px; top: 609px;">
-                <div>
-                    <img alt="image" src="images/ladybug-676448_1920.jpg">
-                    <a href="images/ladybug-676448_1920.jpg" class="popup-with-move-anim">
-                        <div class="over" style="top: 100%; bottom: -100%;">
-                            <div class="comein">
-								<i class="fa fa-search"></i>
-                                <div class="comein-bg"></div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </li>
+			 @endforeach  
+        @else
+        <h5 style="text-align: center; color: #fff;">No Record Found.</h5>
+        @endif	 
             
                                 
         </ul>

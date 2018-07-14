@@ -1,4 +1,22 @@
 <div class="page_content_wrapper section_bg">
+	@if(Session::get('contact_message')) 
+        <?php 
+            $message = Session::get('contact_message'); 
+            $msg_class = Session::get('msg_class');  
+          	if($message){ 
+          ?>
+            	<div class="{{$msg_class}}">
+              	{{$message}}
+               </div>
+             
+            <?php
+        	}
+            Session::put('contact_message', NULL);
+            Session::put('msg_class', NULL); 
+            ?>
+       
+
+    @endif
 	<div class="col-sm-6 col-md-6 col-lg-6"></div>
 	<div class="col-sm-6 col-md-6 col-lg-6">
 		<div class="row">
@@ -6,15 +24,14 @@
 				<h1> <?php echo $profile_data->fullname; ?></h1>
 			</div>	
 			<div class="wpb_wrapper"> 
-				<?php echo $profile_data->note; ?>
+				<?php if($profile_data->note){ echo $profile_data->note;} ?>
 			</div>
 		</div>
 	</div>	
 </div>
 
  
-
-
+ 
 <div class="section_bg page_content_wrapper">
 	<div class="col-sm-1 col-md-1 col-lg-1"></div>
 	<div class="col-sm-5 col-md-5 col-lg-5">
@@ -27,8 +44,10 @@
 				$get_id = Session::get('get_id');
 				$datas = DB::table('tbl_educations')
 						->where('edu_teacher_id', $get_id)
-						->get();  
-			?>
+						->get();   
+				if($datas !="[]"){ 
+			?> 
+
 			@foreach($datas as $data)
 			<li class="">
 				<div class="dy">
@@ -41,7 +60,10 @@
 				</div>
 			</li> 
 			@endforeach
-			 
+			
+			 <?php } else{ echo "<h5 style='text-align: center;' >No Record Found.</h5>";}?>
+			
+
 		</ul>
 		</div>
 	</div> 
@@ -55,15 +77,19 @@
 			$get_id = Session::get('get_id');
 			$datas = DB::table('tbl_expriences')
 					->where('exp_teacher_id', $get_id)
-					->get();  
+					->get(); 
+
 		?>
+		@if($datas !="[]")
 		@foreach($datas as $exprience)
 		<li class="">
 		<div class="dates"><span>{{$exprience->exp_end_date}}</span><span>{{$exprience->exp_strt_date}}</span></div>
 		<div class="content"><h4>{{$exprience->exp_post_name}}</h4><p>{{$exprience->exp_desc}}</p></div>
 		</li>
  		@endforeach
-
+ 		@else
+ 		<h5 style="text-align: center;">No Record Found.</h5>
+ 		@endif
 	</ul>
 		</div>
 	</div>
@@ -77,14 +103,15 @@
 			</div>	
 
 			<?php 
-					$get_id = Session::get('get_id');
-					$datas = DB::table('tbl_publications')
-							->where('pub_teacher_id', $get_id)
-							->orderBy('pub_date', 'DESC')
-							->take(2)
-							->get();  
-				?>
-				@foreach($datas as $data)
+				$get_id = Session::get('get_id');
+				$datas = DB::table('tbl_publications')
+						->where('pub_teacher_id', $get_id)
+						->orderBy('pub_date', 'DESC')
+						->take(2)
+						->get();  
+			?>
+			@if($datas !="[]")
+			@foreach($datas as $data)
 			<div class="item">
 				<div class="pubmain pub-has-thumbnail">
 					<div class="pub-thumb">
@@ -104,7 +131,9 @@
 				</div> 
 			</div> 
 			@endforeach
-			 
+			@else
+	 		<h5 style="text-align: center;">No Record Found.</h5>
+	 		@endif
 		</div>
 	</div>
 </div>
@@ -135,6 +164,7 @@
 					->get();
 				  
 		?>
+		@if($datas !="[]")
 		<?php foreach($datas as $data){ 
 			$rand = str_random(6);
 			?>
@@ -146,8 +176,7 @@
 	            <a target="_blank" role="button" data-toggle="collapse" data-parent="#accordion" href="#{{$rand}}" aria-expanded="false" aria-controls="{{$rand}}" class="collapsed">
 	             {{$data->awr_name}}
 	            </a>
-	          </h4>
-	          
+	          </h4> 
 	        </div>
 	        <div id="{{$rand}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
 		          <div class="panel-body">
@@ -156,7 +185,9 @@
 		        </div>
 	      </div>
       	<?php } ?>
-       
+       @else
+ 		<h5 style="text-align: center;">No Record Found.</h5>
+ 		@endif
 
        
     </div>
