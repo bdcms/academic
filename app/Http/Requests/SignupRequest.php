@@ -28,13 +28,14 @@ class SignupRequest extends FormRequest
             'fullname'      => 'required',
             'email'         => 'required|email|unique:tbl_profiles,email',
             'password'      => 'required|required_with:repassword|same:repassword',
-            'repassword'    =>'required|min:6',
-            'contact'       =>'required|numeric', 
-            'dept_name'     =>'required',
-            'birth_date'    =>'required',
-            'last_institute'=>'required',
-            'token'         =>'required|exists:tbl_securitys,keyword',
-            'image'         =>'required|mimes:jpeg,jpg,png'
+            'repassword'    => 'required|min:6',
+            'contact'       => 'required|numeric', 
+            'position'      => 'required',
+            'dept_name'     => 'required',
+            'birth_date'    => 'required',
+            'last_institute'=> 'required',
+            'token'         => 'required|exists:tbl_securitys,keyword',
+            'image'         => 'required|mimes:jpeg,jpg,png'
         ];
         return $rules;
     }
@@ -47,6 +48,7 @@ class SignupRequest extends FormRequest
         // 'email.unique'          => 'unique:connection.tbl_profiles,email',
         'birth_date.required'   =>'Birth date is required.',
         'dept_name.required'    =>'Depertment name is required.',
+        'position.required'     =>'position name is required.',
         'contact.size'          =>'Depertment name is required.',
         'token.required'        =>'Must insert Token which provied you by NWU authority.' ,
         'token.exists'          =>'Invalid token Keyword.' 

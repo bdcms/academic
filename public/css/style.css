@@ -159,6 +159,7 @@ color: #fff !important;
     font-weight: 300;
     color: #fff;
     margin: 20px 0 10px 0;
+    font-size: 24px;
 }
 #profile .title h3 {
     font-size: 18px;
@@ -1402,3 +1403,10 @@ height: 200px;
  #sidebar.menu ul#myTabs > .active{background:  rgba(54, 54, 54, 0.1) !important;}
 
 ul#myTabs .active .fa{color: #03cc85;}
+
+.panel-group .panel-heading + .panel-collapse .panel-body{
+        background: #dddddd;
+    border: 15px solid #fff;
+    float: left;
+    margin-bottom: 15px;
+}

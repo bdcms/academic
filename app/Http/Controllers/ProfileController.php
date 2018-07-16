@@ -22,6 +22,10 @@ class ProfileController extends Controller
  
     }
 
+    public function testmethod($id){
+        return $id;
+    }
+
      
 
     

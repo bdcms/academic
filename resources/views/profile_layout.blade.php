@@ -48,7 +48,7 @@
 		<div id="sidebar" class="menu" style=" background-image: url({{URL::to('public/images/sidebg-1.jpg')}});">	
 			<div id="profile" class="clearfix">
               <div class="portrate">
-                <a href="index.html">
+                <a href="{{URL::to('/Profile/'.$get_id)}}">
                   <img src="{{URL::to("$image")}}" alt="Jane Doe">
                 </a>
               </div>
@@ -72,7 +72,7 @@
 			      <li role="presentation"><a href="#Projects" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">
 			      	<i class="fa fa-desktop"></i><span class="fontawesome-text">Projects</span></a></li> 
 
-			      	<li role="presentation"><a href="#Course" role="tab" id="Course-tab" data-toggle="tab" aria-controls="Course">
+			      	<li role="presentation"><a href="#Courses" role="tab" id="Course-tab" data-toggle="tab" aria-controls="Course">
 			      	<i class="fa fa-book"></i><span class="fontawesome-text">Course Taken</span></a></li> 
 
 			      	<li role="presentation"><a href="#Training" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">

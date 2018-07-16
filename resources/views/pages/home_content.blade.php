@@ -1,3 +1,9 @@
+
+{{-- <?php 
+ use \App\Http\Controllers\HomeController;
+ echo HomeController::testmethod(2);
+ 	 
+?> --}}
 <div class="page_content_wrapper section_bg">
 	@if(Session::get('contact_message')) 
         <?php 
@@ -44,7 +50,8 @@
 				$get_id = Session::get('get_id');
 				$datas = DB::table('tbl_educations')
 						->where('edu_teacher_id', $get_id)
-						->get();   
+						->get(); 
+				  
 				if($datas !="[]"){ 
 			?> 
 
@@ -143,10 +150,10 @@
 			->where('teacher_id', $get_id)
 			->first();  
 ?>
-<div class="section_bg_w_image" style="background-image: url({{URL::to("$datas->home_cover")  }}) !important;">
+<div class="section_bg_w_image" style="background-image: url(@if($datas !=""){{URL::to("$datas->home_cover")  }}@else{{URL::to('public/uploads/homebg-150x150.jpg')  }}@endif) !important;">
 	<div class="col-sm-3 col-md-3 col-lg-3"></div>
 	<div class="col-sm-6 col-md-6 col-lg-6">
-		<h2 class="vc_custom_heading">{{$datas->home_note}}</h2>
+		<h2 class="vc_custom_heading">@if($datas !=""){{$datas->home_note}} @else The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below @endif</h2>
 	</div>
 </div>
 <div class="section_bg page_content_wrapper">

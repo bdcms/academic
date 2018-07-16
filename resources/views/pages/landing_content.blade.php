@@ -1,3 +1,4 @@
+
 @extends('landing_layout')
 @section('content')
 <section class="section_bg">
@@ -17,7 +18,7 @@
 				<div class="imageoverlay">  
 					<a target="_blank" href="{{URL::to('/Profile/'.$profile->teacher_id)}}">{{ $profile->fullname }}</a> 
 					<p>{{ $profile->dept_name }}</p>
-					<span>Assistant Lactural of NWU.</span>
+					<span>{{ $profile->position }}</span>
 				</div>
 			</div>
 			<div class="meta"> </div>

@@ -8,8 +8,7 @@ class HomeController extends Controller
 {
     public function index(){
 
-    	$data = DB::table('tbl_profiles')    
-    			->get(); 
+    	$data = DB::table('tbl_profiles')->where('status',1)->get(); 
     	$statement = view('pages/landing_content')
     		->with('profile_data',$data); 
     	return view('landing_layout')
@@ -17,4 +16,6 @@ class HomeController extends Controller
 
     	// return view('pages/landing_content');
     }
+
+     
 }

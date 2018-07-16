@@ -110,23 +110,15 @@
 					    	<label for="exampleInputEmail1">Position:</label>
 					  	</div>
 					  	<div class="col-sm-12 col-md-9 col-lg-9">
-					    	<select class="form-control {{ $errors->has('position') ? 'has-error':''}}" name="position">
-					    		
+					    	<select class="form-control {{ $errors->has('position') ? 'has-error':''}}" name="position"> 
 					    		 
-					    		@if(Request::old('position'))
-					    		<?php	
-					    			$id=Request::old('position'); 
-					    			$position = DB::table('tbl_positions') ->where('pos_id',$id) ->first();  
-					    			echo '<option value="'.$position->pos_id.'">'.$position->pos_name.'</option>'; 
-					    		?> 
-					    		@endif
-					    		<option>Select Position</option>
+					    		<option value="" >Select Position</option>
 								@foreach($datas as $data)
-					    		<option value="{{$data->pos_id}}">{{$data->pos_name}}</option>
+					    			<option value="{{$data->pos_id}}">{{$data->pos_name}}</option>
 					    		@endforeach
 					    	</select>
 
-					    	<span class="error_message">{{ $errors->first('position')}} </span>
+					    	<span class="error_message">{{ $errors->first('position')}}fa </span>
 						</div>
 						<div class="col-sm-12 col-md-1 col-lg-1"></div>
 				  	</div>
