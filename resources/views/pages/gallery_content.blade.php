@@ -29,6 +29,7 @@
             ?>
             @if($datas !="[]")
             @foreach($datas as $data)
+
             <li style="position: absolute; left: 0px; top: 0px;">
                 <div>
                     <img alt="image" src="{{URL::to("$data->glry_cover")}}">
@@ -42,7 +43,7 @@
                     </a>
                 </div>
             </li>
-            
+          
 			 @endforeach  
         @else
         <h5 style="text-align: center; color: #fff;">No Record Found.</h5>

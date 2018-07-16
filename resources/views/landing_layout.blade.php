@@ -62,12 +62,12 @@
 	        	<form action="{{URL('/Login')}}" method="POST">
 	        		{{csrf_field()}}
 					<div class="form-group"> 
-					    <input type="text" class="form-control {{ $errors->has('email') ? 'has-error':''}}" name="email" placeholder="Email" value="{{Request::old('email')}}">
-					    <span class="error_message">{{ $errors->first('email')}} </span>
+					    <input type="text" class="form-control {{ $errors->has('login_email') ? 'has-error':''}}" name="login_email" placeholder="Email" value="{{Request::old('login_email')}}">
+					    <span class="error_message">{{ $errors->first('login_email')}} </span>
 					</div>
 					<div class="form-group"> 
-					    <input type="password" class="form-control {{ $errors->has('password') ? 'has-error':''}}" name="password" placeholder="Password" value="{{Request::old('password')}}">
-					    <span class="error_message">{{ $errors->first('password')}} </span>
+					    <input type="password" class="form-control {{ $errors->has('login_pass') ? 'has-error':''}}" name="login_pass" placeholder="Password" value="{{Request::old('login_pass')}}">
+					    <span class="error_message">{{ $errors->first('login_pass')}} </span>
 					</div> 
 					 
 					<div class="form-group">  

@@ -24,16 +24,17 @@ class UserLoginRequest extends FormRequest
     public function rules()
     {
         $rules = [ 
-            'email'=>        'required|exists:tbl_profiles,email|email',
-            'password'=>        'required|min:6'
+            'login_email'=>        'required|exists:tbl_profiles,email|email',
+            'login_pass'=>        'required|min:6'
         ];
         return $rules;
     }
 
     public function messages(){
        return [ 
-        'email.required'        =>'Please insert login email.',
-        'email.exists'           =>'Email address not found.'
+        'login_email.required' =>'Please insert login email.',
+        'login_email.exists'   =>'Email address not found.',
+        'login_pass.size'      =>'Password min 6 digits.'
          
        ]; 
     }

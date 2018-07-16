@@ -16,8 +16,8 @@ class LoginController extends Controller
     //
     public function User_Login(UserLoginRequest $request){
     	 
-    	$email = $request->email;
-		$password = md5($request->password); 
+    	$email = $request->login_email;
+		$password = md5($request->login_pass); 
 		
 		$result = DB::table('tbl_profiles')
 			->where('email', $email)
