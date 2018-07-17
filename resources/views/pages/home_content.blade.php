@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 
 {{-- <?php 
  use \App\Http\Controllers\HomeController;
  echo HomeController::testmethod(2);
  	 
 ?> --}}
+=======
+ 
+>>>>>>> 42240ad081d0f9ad9c616ba3a956ef2c64d440e6
 <div class="page_content_wrapper section_bg">
 	@if(Session::get('contact_message')) 
         <?php 
