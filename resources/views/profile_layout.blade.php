@@ -36,12 +36,12 @@
 	<div class="menu_wrap"> 
 		<?php 
 			$get_id = Session::get('get_id');
-			$datas = DB::table('tbl_profiles')
-					->where('teacher_id', $get_id)
+			$datas = DB::table('cms_users')
+					->where('id', $get_id)
 					->get(); 
 					foreach ($datas as $value) {
-					  	$image = $value->image;
-					  	$fullname = $value->fullname;
+					  	$image = $value->photo;
+					  	$name = $value->name;
 					  	$last_institute = $value->last_institute;
 					  }   
 		?>
@@ -49,11 +49,15 @@
 			<div id="profile" class="clearfix">
               <div class="portrate">
                 <a href="{{URL::to('/Profile/'.$get_id)}}">
-                  <img src="{{URL::to("$image")}}" alt="Jane Doe">
+                	@if ($image != 'images/profile.jpg') 
+                  		<img src="{{URL::to("$image")}}" alt="{{$name}}">
+                  	@else
+                  		<img src="{{ url('public/images/profile.jpg') }}" alt="Profle Picture">
+                	@endif
                 </a>
               </div>
               <div class="title">
-                  <h2>{{$fullname}}</h2>
+                  <h2>{{$name}}</h2>
                   <h3>{{$last_institute}}</h3>
               </div>   
           	</div>
@@ -92,10 +96,13 @@
 			<div id="sidebar-footer">
 				<div class="social-icons">
 					<ul> 
-	                    <li><a target="_blank" href="#"><i class="fa fa-facebook"></i></a></li>
-	                    <li><a target="_blank" href="#"><i class="fa fa-twitter"></i></a></li> 
-	                    <li><a target="_blank" href="#"><i class="fa fa-linkedin"></i></a></li> 
-	                    <li><a target="_blank" href="#"><i class="researchgate"></i></a></li> 
+						@php
+							$social = DB::table('tbl_socials')->where('teacher_id',$get_id)->first();
+						@endphp
+	                    <li><a target="_blank" href="{{$social->facebook}}"><i class="fa fa-facebook"></i></a></li>
+	                    <li><a target="_blank" href="{{$social->twitter}}"><i class="fa fa-twitter"></i></a></li> 
+	                    <li><a target="_blank" href="{{$social->linkedin}}"><i class="fa fa-linkedin"></i></a></li> 
+	                    <li><a target="_blank" href="{{$social->researchgate}}"><i class="researchgate"></i></a></li> 
 	            	</ul>
 				</div>  
 				<div id="copyright">All rights reserved</div> 

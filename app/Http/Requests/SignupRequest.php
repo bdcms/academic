@@ -26,7 +26,7 @@ class SignupRequest extends FormRequest
 
         $rules = [
             'fullname'      => 'required',
-            'email'         => 'required|email|unique:tbl_profiles,email',
+            'email'         => 'required|email|unique:cms_users,email',
             'password'      => 'required|required_with:repassword|same:repassword',
             'repassword'    => 'required|min:6',
             'contact'       => 'required|numeric', 
@@ -34,8 +34,7 @@ class SignupRequest extends FormRequest
             'dept_name'     => 'required',
             'birth_date'    => 'required',
             'last_institute'=> 'required',
-            'token'         => 'required|exists:tbl_securitys,keyword',
-            'image'         => 'required|mimes:jpeg,jpg,png'
+            'token'         => 'required|exists:tbl_securitys,keyword', 
         ];
         return $rules;
     }

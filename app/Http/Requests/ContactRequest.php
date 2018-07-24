@@ -27,7 +27,7 @@ class ContactRequest extends FormRequest
             'name'          => 'required',
             'contact_num'   => 'required|numeric',
             'email'         => 'email',
-            'message'   => 'required'
+            'body'          => 'required'
         ];
         return $rules;
     }
@@ -36,7 +36,7 @@ class ContactRequest extends FormRequest
        return [
         'name.required'         =>'Name field required.',
         'email.required'        =>'Email name field required.',
-        'message.required'      =>'Insert your text message.', 
+        'body.required'      =>'Insert your text message.', 
         'contact_num.required'  =>'Number field required.', 
         'email.email'           =>'This is not a valid email.' 
          

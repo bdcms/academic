@@ -47,49 +47,67 @@
               </div>   
           	</div>  
 			<div id="main-nav" class="nwuteacher_login" style="padding-bottom: 57px;"> 
-				@if(Session::get('message'))
-			      <p class="flush_msg" style="font-size: 12px;color: red;">
-			        <?php 
-			            $message = Session::get('message'); 
-			            if($message){
-			              echo $message; 
-			            }
-			            //Session::put('message',NULL);
-			          ?>
-			        </p>
-
-			    @endif 
-	        	<form action="{{URL('/Login')}}" method="POST">
+				
+			    @if ( Session::get('message') != '' )
+		            <div class='alert alert-warning'>
+		                {{ Session::get('message') }}
+		            </div>
+		        @endif 
+	        	<form autocomplete='off' action="{{route('postLogin')}}" method="POST">
 	        		{{csrf_field()}}
 					<div class="form-group"> 
-					    <input type="text" class="form-control {{ $errors->has('login_email') ? 'has-error':''}}" name="login_email" placeholder="Email" value="{{Request::old('login_email')}}">
-					    <span class="error_message">{{ $errors->first('login_email')}} </span>
+					    <input  autocomplete='off' type="text" class="form-control" name='email' required placeholder="Email">  
 					</div>
 					<div class="form-group"> 
-					    <input type="password" class="form-control {{ $errors->has('login_pass') ? 'has-error':''}}" name="login_pass" placeholder="Password" value="{{Request::old('login_pass')}}">
-					    <span class="error_message">{{ $errors->first('login_pass')}} </span>
+					    <input autocomplete='off' type="password" class="form-control" name='password' required placeholder="Password">  
 					</div> 
 					 
 					<div class="form-group">  
-					 <button type="submit" class="btn btn-default">Sign in</button>
+					 <button type="submit" class="btn btn-primary btn-block btn-flat"><i class='fa fa-lock'></i> {{trans("crudbooster.button_sign_in")}}</button>
 					</div>
 				</form>
+
+
+
+			{{-- 	@if ( Session::get('message') != '' )
+            <div class='alert alert-warning'>
+                {{ Session::get('message') }}
+            </div>
+        @endif
+
+        <p class='login-box-msg'>{{trans("crudbooster.login_message")}}</p>
+        <form autocomplete='off' action="{{ route('postLogin') }}" method="post">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+            <div class="form-group has-feedback">
+                <input autocomplete='off' type="text" class="form-control" name='email' required placeholder="Email"/>
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input autocomplete='off' type="password" class="form-control" name='password' required placeholder="Password"/>
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div style="margin-bottom:10px" class='row'>
+                <div class='col-xs-12'>
+                    <button type="submit" class="btn btn-primary btn-block btn-flat"><i class='fa fa-lock'></i> {{trans("crudbooster.button_sign_in")}}</button>
+                </div>
+            </div>
+
+            <div class='row'>
+                <div class='col-xs-12' align="center"><p style="padding:10px 0px 10px 0px">{{trans("crudbooster.text_forgot_password")}} <a
+                                href='{{route("getForgot")}}'>{{trans("crudbooster.click_here")}}</a></p></div>
+            </div>
+        </form> --}}
+
+
+
+
+
 				<ul id="myTabs" class="nav nav-tabs" role="tablist">   
 			      <li><a href="{{ URL::to('/Signup') }}">Sign Up</a></li>  
 			    </ul>
 			</div> 
 
-			<div id="sidebar-footer">
-				<div class="social-icons">
-					<ul> 
-	                    <li><a target="_blank" href="#"><i class="fa fa-facebook"></i></a></li>
-	                    <li><a target="_blank" href="#"><i class="fa fa-twitter"></i></a></li> 
-	                    <li><a target="_blank" href="#"><i class="fa fa-linkedin"></i></a></li> 
-	                    <li><a target="_blank" href="#"><i class="researchgate"></i></a></li> 
-	            	</ul>
-				</div>  
-				<div id="copyright">All rights reserved</div> 
-			</div> 
+			  
 		</div>	
 	</div>	
 	<!-- ================== Manu html Exit ======================= --> 

@@ -43,7 +43,7 @@
 			          <td>{{$data->course_code}}</td>
 			          <td>{{$data->program}}</td>
 			          <td>{{$data->course_type}}</td>
-			          <td>{{$data->course_desc}}</td>
+			          <td>{!!$data->course_desc!!}</td>
 			        </tr> 
 
 				    

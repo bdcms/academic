@@ -1,13 +1,4 @@
-<<<<<<< HEAD
 
-{{-- <?php 
- use \App\Http\Controllers\HomeController;
- echo HomeController::testmethod(2);
- 	 
-?> --}}
-=======
- 
->>>>>>> 42240ad081d0f9ad9c616ba3a956ef2c64d440e6
 <div class="page_content_wrapper section_bg">
 	@if(Session::get('contact_message')) 
         <?php 
@@ -27,11 +18,18 @@
        
 
     @endif
-	<div class="col-sm-6 col-md-6 col-lg-6"></div>
+	<div class="col-sm-6 col-md-6 col-lg-6"> 
+		@if ($profile_data->photo != 'images/profile.jpg')
+			{{-- expr --}}
+			<img src="{{url($profile_data->photo)}}" alt="Profle Picture">
+		@else
+			<img src="{{ url('public/images/profile.jpg') }}" alt="Profle Picture">
+		@endif	
+	</div>
 	<div class="col-sm-6 col-md-6 col-lg-6">
 		<div class="row">
 			<div class="page_heading home_page_h"> 
-				<h1> <?php echo $profile_data->fullname; ?></h1>
+				<h1> <?php echo $profile_data->name; ?></h1>
 			</div>	
 			<div class="wpb_wrapper"> 
 				<?php if($profile_data->note){ echo $profile_data->note;} ?>
@@ -95,7 +93,7 @@
 		@foreach($datas as $exprience)
 		<li class="">
 		<div class="dates"><span>{{$exprience->exp_end_date}}</span><span>{{$exprience->exp_strt_date}}</span></div>
-		<div class="content"><h4>{{$exprience->exp_post_name}}</h4><p>{{$exprience->exp_desc}}</p></div>
+		<div class="content"><h4>{{$exprience->exp_post_name}}</h4><p>{!!$exprience->exp_desc!!}</p></div>
 		</li>
  		@endforeach
  		@else
@@ -106,7 +104,8 @@
 	</div>
 </div>
 <div class=" page_content_wrapper">
-	<div class="col-sm-1 col-md-1 col-lg-1"></div>
+	<div class="col-sm-1 col-md-1 col-lg-1"> 
+	</div>
 	<div class="col-sm-10 col-md-10 col-lg-10">
 		 <div class="row">
 			<div class="page_heading education_heading"> 
@@ -157,7 +156,7 @@
 <div class="section_bg_w_image" style="background-image: url(@if($datas !=""){{URL::to("$datas->home_cover")  }}@else{{URL::to('public/uploads/homebg-150x150.jpg')  }}@endif) !important;">
 	<div class="col-sm-3 col-md-3 col-lg-3"></div>
 	<div class="col-sm-6 col-md-6 col-lg-6">
-		<h2 class="vc_custom_heading">@if($datas !=""){{$datas->home_note}} @else The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below @endif</h2>
+		<h2 class="vc_custom_heading">@if($datas !=""){{$datas->home_note}} @else I Love Bangladesh. @endif</h2>
 	</div>
 </div>
 <div class="section_bg page_content_wrapper">
@@ -191,7 +190,7 @@
 	        </div>
 	        <div id="{{$rand}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
 		          <div class="panel-body">
-		            {{$data->awr_desc}}
+		            {!!$data->awr_desc!!}
 		          </div>
 		        </div>
 	      </div>

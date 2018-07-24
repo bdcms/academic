@@ -41,7 +41,7 @@
 		{{csrf_field()}}
 		<div class="control-group"> 
 		    <div class="controls">
-		    	<input type="text" name="name" placeholder="Name" value="{{Request::old('name')}}">
+		    	<input type="text" name="name"  placeholder="Name" required="true" value="{{Request::old('name')}}">
 		    	<span class="error_message">{{ $errors->first('name')}} </span>
 		    	<input type="hidden" name="id" value="{{$get_id}}">
 		    </div>
@@ -50,20 +50,20 @@
 		 
 		<div class="control-group"> 
 		    <div class="controls">
-		    	<input type="number" name="contact_num" placeholder="Contact number"value="{{Request::old('contact_num')}}">
+		    	<input type="number" name="contact_num" placeholder="Contact number" required="true" value="{{Request::old('contact_num')}}">
 		    	<span class="error_message">{{ $errors->first('contact_num')}} </span>
 		    </div>
 		</div>
 		<div class="control-group"> 
 		    <div class="controls">
-		    	<input type="email" name="email" placeholder="Email" value="{{Request::old('email')}}">
+		    	<input type="email" name="email" placeholder="Email" required="true" value="{{Request::old('email')}}">
 		    	<span class="error_message">{{ $errors->first('email')}} </span>
 		    </div>
 		</div> 
 		<div class="control-group"> 
 		    <div class="controls">
-		    	<textarea name="message" cols="40" rows="18" class="form-control" placeholder="message..">{{Request::old('message')}}</textarea>  
-		    	<span class="error_message">{{ $errors->first('message')}} </span>
+		    	<textarea name="body" cols="40" rows="18" class="form-control" required="true" placeholder="body..">{{Request::old('body')}}</textarea>  
+		    	<span class="error_message">{{ $errors->first('body')}} </span>
 		    </div>
 		</div>
 

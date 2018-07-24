@@ -113,12 +113,12 @@
 					    	<select class="form-control {{ $errors->has('position') ? 'has-error':''}}" name="position"> 
 					    		 
 					    		<option value="" >Select Position</option>
-								@foreach($datas as $data)
-					    			<option value="{{$data->pos_id}}">{{$data->pos_name}}</option>
+								@foreach($positions as $data)
+					    			<option value="{{$data->id}}">{{$data->pos_name}}</option>
 					    		@endforeach
 					    	</select>
 
-					    	<span class="error_message">{{ $errors->first('position')}}fa </span>
+					    	<span class="error_message">{{ $errors->first('position')}}</span>
 						</div>
 						<div class="col-sm-12 col-md-1 col-lg-1"></div>
 				  	</div>
@@ -128,8 +128,17 @@
 					    	<label for="exampleInputEmail1">Depertment Name:</label>
 					  	</div>
 					  	<div class="col-sm-12 col-md-9 col-lg-9">
-					    	<input type="text" name="dept_name" class="form-control {{ $errors->has('dept_name') ? 'has-error':''}}" placeholder="Depertment" value="{{Request::old('dept_name')}}">
+					    	{{-- <input type="text" name="dept_name" class="form-control {{ $errors->has('dept_name') ? 'has-error':''}}" placeholder="Depertment" value="{{Request::old('dept_name')}}"> --}} 
+
+					    	<select class="form-control {{ $errors->has('dept_name') ? 'has-error':''}}" name="dept_name"> 
+					    		 
+					    		<option value="" >Select Department</option>
+								@foreach($deparments as $data)
+					    			<option value="{{$data->id}}">{{$data->department}}</option>
+					    		@endforeach
+					    	</select>
 					    	<span class="error_message">{{ $errors->first('dept_name')}} </span>
+
 						</div>
 						<div class="col-sm-12 col-md-1 col-lg-1"></div>
 				  	</div>
@@ -162,13 +171,13 @@
 					    	<label for="exampleInputEmail1">Token:</label>
 					  	</div>
 					  	<div class="col-sm-12 col-md-9 col-lg-9">
-					    	<input type="text" name="token" class="form-control {{ $errors->has('token') ? 'has-error':''}}" placeholder="Token" value="{{Request::old('token')}}">
+					    	<input type="password" name="token" class="form-control {{ $errors->has('token') ? 'has-error':''}}" placeholder="Token" value="{{Request::old('token')}}">
 					    	<span class="error_message">{{ $errors->first('token')}} </span>
 						</div>
 						<div class="col-sm-12 col-md-1 col-lg-1"></div>
 				  	</div>
 
-				  	<div class="form-group">
+				  	{{-- <div class="form-group">
 					  	<div class="col-sm-12 col-md-2 col-lg-2"> 
 					    	<label for="exampleInputEmail1">Image:</label>
 					  	</div>
@@ -176,7 +185,7 @@
 					    	<input type="file" name="image" class="form-control" placeholder="Birth Date">
 						</div>
 						<div class="col-sm-12 col-md-1 col-lg-1"></div>
-				  	</div>
+				  	</div> --}}
 
 				  	<div class="form-group">
 					  	<div class="col-sm-12 col-md-2 col-lg-2"> 

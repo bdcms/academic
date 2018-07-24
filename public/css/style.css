@@ -478,7 +478,7 @@ ul.ul-card li, ul.timeline li .data, .ul-boxed li, .ul-withdetails li,  .pubmain
     background-repeat: no-repeat !important;
     background-size: cover !important;
 }
-.section_bg_w_image h2{font-size: 28px;color: #ffffff;line-height: 1.2;text-align: center;font-family:PT Sans;font-weight:700;font-style:normal}
+.section_bg_w_image h2{font-size: 28px;color: green;line-height: 1.2;text-align: center;font-family:PT Sans;font-weight:700;font-style:normal}
 
 
 
@@ -1271,7 +1271,7 @@ body{transition: all 200ms ease-in; -webkit-transition: all 200ms ease-in; -o-tr
         color: #aaaaaa;
     }
 .nwustaff ul li a {}
-.tab-content section{float: left;width: 100%;margin: 0px;padding: 50px 0px;} 
+.tab-content section{float: left;width: 100%;margin-top: 15px;padding: 20px 0px;} 
 .home__page_heading{text-align: center;  }
 .home__page_heading h2{color:#184FA0; }
 .signup_form_, .signup_form_ .form-group{float: left;width: 100%;overflow: hidden;}
@@ -1409,4 +1409,14 @@ ul#myTabs .active .fa{color: #03cc85;}
     border: 15px solid #fff;
     float: left;
     margin-bottom: 15px;
+}
+
+.customalert{
+    margin-bottom: 0px;
+    overflow: hidden;
+    background: #ddd;
+    font-style: italic;
+    font-weight: bold;
+    font-family: inherit;
+    padding: 10px;
 }

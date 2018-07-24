@@ -30,7 +30,7 @@
 			<p>Start at: <strong>{{$data->re_strt_date}}</strong> with team <strong>{{$data->re_team}}</strong></p>
 			<p>Support on: <strong>{{$data->org_name}}</strong></p>
 		</div>
-		{{$data->re_desc}}
+		{!!$data->re_desc!!}
 
 		 @endforeach  
         @else

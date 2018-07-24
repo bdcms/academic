@@ -33,12 +33,12 @@
 	        		<div class="image" style="background-image:url({{URL::to("$data->pro_cover")}});">
 	        			<div class="imageoverlay"><i class="fa fa-search"></i></div>
 	        		</div>
-	        		<div class="meta"><h3>{{$data->pro_name}}</h3><p>{{$data->pro_desc}}</p></div>
+	        		<div class="meta"><h3>{{$data->pro_name}}</h3><p>{!!$data->pro_desc!!}</p></div>
 	        	</div> 
 	        </div>
 	        <div id="{{$rand}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 187px;">
 	          <div class="panel-body">
-	            {{$data->pro_shortdesc}}
+	            {!!$data->pro_shortdesc!!}
 	          </div>
 	        </div>
 	    </div>

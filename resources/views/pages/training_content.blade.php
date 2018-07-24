@@ -37,7 +37,7 @@
 	            <h5>Training Name:<strong> {{$data->title}}</strong></h5> 
 	            <h5>Training Duration: <strong> {{$data->duration}}</strong></h5> 
 	            <h5>Training Institute: <strong> {{$data->org_name}}</strong></h5>
-	             <strong>About Training:</strong> {{$data->desc}}
+	             <strong>About Training:</strong> {!!$data->desc!!}
 	          </div>
 	        </div>
 	    </div>
