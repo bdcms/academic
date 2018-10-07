@@ -42,7 +42,7 @@ class ContactController extends Controller
     	//    Session::put('con_message','<p style="color:red;font-size:12px;">Message Sending faild!!</p>'); 
      //        Session::put('msg_class','alert alert-danger'); 
      //     }
-	    return Redirect("/Profile/$id"); 
+	    return Redirect("/Profile/$id")->with('success','your message has been send. Thank you.'); 
 
     }
 }
